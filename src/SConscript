@@ -1,0 +1,8 @@
+# Copyright (c) 2015 Alex Kramer <kramer.alex.kramer@gmail.com>
+# See the LICENSE.txt file at the top-level directory of this distribution.
+
+Import("env")
+
+env.Library("tridiag", source=Glob("tridiag.f90", "precision.f90"))
+
+env.Library("tridiag_matmul", source=Glob("tridiag_matmul.f90", "precision.f90"))

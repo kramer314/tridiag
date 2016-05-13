@@ -1,0 +1,8 @@
+integer(ip) :: i, n
+
+n = size(res)
+res(n) = vec_coeff(n)
+
+do i = n - 1, 1, - 1
+  res(i) = vec_coeff(i) - mat_coeff(i) * res(i + 1)
+end do

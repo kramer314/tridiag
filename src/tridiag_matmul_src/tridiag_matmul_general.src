@@ -1,0 +1,12 @@
+integer(ip) :: i, n
+
+n = size(vec)
+
+res(1) = diag(1) * vec(1) + u_diag(1) * vec(2)
+
+do i = 2, n - 1
+  res(i) = l_diag(i - 1) * vec(i - 1) + diag(i) * vec(i) + &
+    u_diag(i) * vec(i + 1)
+end do
+
+res(n) = l_diag(n - 1) * vec(n - 1) + diag(n) * vec(n)
