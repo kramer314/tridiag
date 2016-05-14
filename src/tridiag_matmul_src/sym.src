@@ -1,0 +1,1 @@
+call tridiag_matmul_gen(diag, o_diag, o_diag, vec, res)
