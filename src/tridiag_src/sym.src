@@ -1,0 +1,1 @@
+call tridiag_gen(diag, o_diag, o_diag, vec, mat_coeff, vec_coeff, res)

@@ -17,5 +17,4 @@ vec_coeff(n) = (vec(n) - l_diag_cnst * vec_coeff(n - 1)) / &
     (diag_cnst - l_diag_cnst * mat_coeff(n - 1))
 
 ! Backward sweep to solve the system
-
 call tridiag_backsweep(mat_coeff, vec_coeff, res)

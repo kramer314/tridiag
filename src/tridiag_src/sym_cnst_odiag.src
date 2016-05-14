@@ -1,0 +1,2 @@
+call tridiag_cnst_odiag(diag, o_diag_cnst, o_diag_cnst, vec, mat_coeff, &
+  vec_coeff, res)
