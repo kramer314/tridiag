@@ -1,0 +1,1 @@
+val = ( abs(diag_cnst) .gt. abs(l_diag_cnst) + abs(u_diag_cnst) )

@@ -1,0 +1,1 @@
+val = tridiag_stable_gen(diag, o_diag, o_diag)

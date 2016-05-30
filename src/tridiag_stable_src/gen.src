@@ -1,0 +1,50 @@
+real(fp) :: u_diag_last, u_diag_val
+real(fp) :: l_diag_last, l_diag_val
+real(fp) :: diag_val
+
+logical :: r_dom, c_dom
+integer(ip) :: i, n
+
+n = size(diag)
+
+val = .true.
+
+! Handle first indices
+diag_val = abs(diag(1))
+u_diag_val = abs(u_diag(1))
+l_diag_val = abs(l_diag(1))
+
+r_dom = (diag_val .gt. u_diag_val)
+c_dom = (diag_val .gt. l_diag_val)
+val = (r_dom .or. c_dom)
+
+u_diag_last = u_diag_val
+l_diag_last = l_diag_val
+
+do i = 2, n - 1
+  if (.not. val) then
+    exit
+  end if
+
+  diag_val = abs(diag(i))
+  u_diag_val = abs(u_diag(i))
+  l_diag_val = abs(l_diag(i))
+
+  r_dom = (r_dom .and. (diag_val .gt. l_diag_last + u_diag_val) )
+  c_dom = (c_dom .and. (diag_val .gt. u_diag_last + l_diag_val) )
+
+  val = (r_dom .or. c_dom)
+
+  u_diag_last = u_diag_val
+  l_diag_last = l_diag_val
+
+end do
+
+! Handle last indices
+if (val) then
+  diag_val = abs(diag(n))
+
+  r_dom = (r_dom .and. (diag_val .gt. l_diag_last))
+  c_dom = (c_dom .and. (diag_val .gt. u_diag_last))
+  val = (r_dom .or. c_dom)
+end if

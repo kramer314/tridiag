@@ -1,0 +1,34 @@
+real(fp) :: u_diag_val
+real(fp) :: l_diag_val
+real(fp) :: diag_val
+
+integer(ip) :: i, n
+
+n = size(diag)
+
+u_diag_val = abs(u_diag_cnst)
+l_diag_val = abs(l_diag_cnst)
+
+val = .true.
+
+! Handle first indices
+diag_val = abs(diag(1))
+
+val = ( (diag_val .gt. u_diag_val) .or. (diag_val .gt. l_diag_val) )
+
+do i = 2, n - 1
+  if (.not. val) then
+    exit
+  end if
+
+  diag_val = abs(diag(i))
+
+  val = (diag_val .gt. l_diag_val + u_diag_val)
+end do
+
+! Handle last indices
+if (val) then
+  diag_val = abs(diag(n))
+
+  val = ( (diag_val .gt. u_diag_val) .or. (diag_val .gt. l_diag_val) )
+end if
