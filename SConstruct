@@ -3,8 +3,8 @@
 
 import os
 
-source_dir = "#src/"
-build_dir = "#build/"
+source_dir =  os.path.abspath("./src") + "/"
+build_dir = os.path.abspath("./build") + "/"
 
 env = DefaultEnvironment(ENV = os.environ, TOOLS = ['default', "gfortran"])
 
@@ -14,11 +14,11 @@ debug_flags = "-Og -g3 -Wall -Wextra -Wconversion -Wunused-parameter " + \
 general_flags = "-frecursive "
 prod_flags = "-O3 -march=native "
 
-flags = general_flags + IEEE_flags + prod_flags
+flags = general_flags + IEEE_flags + debug_flags
 
 env.Replace(F90FLAGS = flags)
 env.Replace(LINKFLAGS = flags)
-env.Replace(FORTRANMODDIRPREFIX = "-J ")
+env.Replace(FORTRANMODDIRPREFIX = "-J")
 env.Replace(FORTRANMODDIR = build_dir)
 
 Export("env")
