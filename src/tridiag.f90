@@ -140,7 +140,7 @@ contains
   ! vec_coeff(n) :: Gaussian elimination coefficients for b, where A x = b
   ! res(n) :: x (unknown), where A x = b
 
-  ! tridiag_backsweep definition for double precision real values
+  ! tridiag_backsweep definition for double-precision real values
   subroutine tridiag_backsweep_real_dp(mat_coeff, vec_coeff, res)
     real(dp), intent(in) :: mat_coeff(:), vec_coeff(:)
     real(dp), intent(inout) :: res(:)
@@ -148,7 +148,7 @@ contains
     include "./tridiag_src/backsweep.src"
   end subroutine tridiag_backsweep_real_dp
 
-  ! tridiag_backsweep definition for double precision complex values
+  ! tridiag_backsweep definition for double-precision complex values
   subroutine tridiag_backsweep_cmplx_dp(mat_coeff, vec_coeff, res)
     complex(dp), intent(in) :: mat_coeff(:), vec_coeff(:)
     complex(dp), intent(inout) :: res(:)
@@ -156,7 +156,7 @@ contains
     include "./tridiag_src/backsweep.src"
   end subroutine tridiag_backsweep_cmplx_dp
 
-  ! tridiag_backsweep definition for single precision real values
+  ! tridiag_backsweep definition for single-precision real values
   subroutine tridiag_backsweep_real_sp(mat_coeff, vec_coeff, res)
     real(sp), intent(in) :: mat_coeff(:), vec_coeff(:)
     real(sp), intent(inout) :: res(:)
@@ -164,7 +164,7 @@ contains
     include "./tridiag_src/backsweep.src"
   end subroutine tridiag_backsweep_real_sp
 
-  ! tridiag_backsweep definition for single precision complex values
+  ! tridiag_backsweep definition for single-precision complex values
   subroutine tridiag_backsweep_cmplx_sp(mat_coeff, vec_coeff, res)
     complex(sp), intent(in) :: mat_coeff(:), vec_coeff(:)
     complex(sp), intent(inout) :: res(:)
@@ -185,7 +185,7 @@ contains
   ! vec_coeff(n) :: work array
   ! res(:) :: x (unknown), where A x = b
 
-  ! tridiag_gen definition for double precision real values
+  ! tridiag_gen definition for double-precision real values
   subroutine tridiag_gen_real_dp(diag, u_diag, l_diag, vec, mat_coeff, &
     vec_coeff, res)
 
@@ -198,7 +198,7 @@ contains
     include "./tridiag_src/gen.src"
   end subroutine tridiag_gen_real_dp
 
-  ! tridiag_gen definition for double precision complex values
+  ! tridiag_gen definition for double-precision complex values
   subroutine tridiag_gen_cmplx_dp(diag, u_diag, l_diag, vec, mat_coeff, &
     vec_coeff, res)
 
@@ -211,7 +211,7 @@ contains
     include "./tridiag_src/gen.src"
   end subroutine tridiag_gen_cmplx_dp
 
-  ! tridiag_gen definition for single precision real values
+  ! tridiag_gen definition for single-precision real values
   subroutine tridiag_gen_real_sp(diag, u_diag, l_diag, vec, mat_coeff, &
     vec_coeff, res)
 
@@ -224,7 +224,7 @@ contains
     include "./tridiag_src/gen.src"
   end subroutine tridiag_gen_real_sp
 
-  ! tridiag_gen definition for single precision complex values
+  ! tridiag_gen definition for single-precision complex values
   subroutine tridiag_gen_cmplx_sp(diag, u_diag, l_diag, vec, mat_coeff, &
     vec_coeff, res)
 
