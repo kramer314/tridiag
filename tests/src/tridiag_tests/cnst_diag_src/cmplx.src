@@ -1,0 +1,27 @@
+integer(ip), parameter :: n = 5
+
+complex(fp) :: vec(n), res(n)
+complex(fp) :: mat_coeff(n - 1), vec_coeff(n)
+
+complex(fp) :: u_diag(n - 1), l_diag(n - 1)
+complex(fp) :: diag_cnst
+
+complex(fp) :: res_mul(n)
+
+
+diag_cnst = (0.89_fp, -0.76_fp)
+
+l_diag = [(0.07_fp, -0.31_fp), (0.13_fp, 0.15_fp), (0.23_fp, -0.06_fp), &
+  (-0.13_fp, -0.22_fp)]
+u_diag = [(0.22_fp, 0.08_fp), (0.51_fp, -0.45_fp), &
+  (0.19_fp, 0.20_fp), (-0.51_fp, -0.65_fp)]
+
+vec = [(0.12_fp, -0.69_fp), (0.46_fp, -0.58_fp), (0.76_fp, 0.05_fp), &
+  (-0.18_fp, -0.88_fp), (0.46_fp, 0.58_fp)]
+
+call tridiag_cnst_diag(diag_cnst, u_diag, l_diag, vec, mat_coeff, vec_coeff, &
+     res)
+     
+call tridiag_matmul_cnst_diag(diag_cnst, u_diag, l_diag, res, res_mul)
+
+val = sum( abs( vec(:) - res_mul(:) ) )

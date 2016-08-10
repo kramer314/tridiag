@@ -1,0 +1,21 @@
+integer(ip), parameter :: n = 5
+
+real(fp) :: vec(n), res(n)
+real(fp) :: mat_coeff(n - 1), vec_coeff(n)
+
+real(fp) :: diag(n)
+real(fp) :: o_diag_cnst
+
+real(fp) :: res_mul(n)
+
+
+o_diag_cnst = 0.12_fp
+
+diag = [0.73_fp, -0.29_fp, 0.55_fp, -0.82_fp, 0.58_fp]
+vec = [0.96_fp, 0.58_fp, -0.23_fp, 0.19_fp, -0.80_fp]
+
+call tridiag_sym_cnst_odiag(diag, o_diag_cnst, vec, mat_coeff, vec_coeff, res)
+
+call tridiag_matmul_sym_cnst_odiag(diag, o_diag_cnst, res, res_mul)
+
+val = sum( abs( vec(:) - res_mul(:) ) )

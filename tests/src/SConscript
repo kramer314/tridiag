@@ -1,0 +1,9 @@
+Import("env")
+Import("libs", "lib_path")
+Import("source_dir", "build_dir")
+
+test_dir = build_dir + "tridiag_tests/"
+
+sources = ["test_tridiag.f90"] + Glob(test_dir+"*.f90")
+env.Program("test_tridiag.x", sources, LIBS=libs, LIBPATH=lib_path) #source="test_tridiag.f90", LIBS=libs, LIBPATH=lib_path)
+
