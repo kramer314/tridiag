@@ -14,7 +14,7 @@ debug_flags = "-Og -g3 -Wall -Wextra -Wconversion -Wunused-parameter " + \
 general_flags = "-frecursive "
 prod_flags = "-O3 -march=native "
 
-flags = general_flags + IEEE_flags + debug_flags
+flags = general_flags + IEEE_flags + prod_flags
 
 env.Replace(F90FLAGS = flags)
 env.Replace(LINKFLAGS = flags)
