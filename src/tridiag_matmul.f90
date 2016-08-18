@@ -23,7 +23,8 @@
 module tridiag_matmul
 
 
-  use iso_fortran_env, only: real32, real64, int32
+  ! Numeric precision parameters
+  use iso_fortran_env, only: sp=>real32, dp=>real64, ip=>int32
 
   implicit none
   private
@@ -112,12 +113,6 @@ module tridiag_matmul
      module procedure tridiag_matmul_sym_cnst_odiag_real_sp
      module procedure tridiag_matmul_sym_cnst_odiag_cmplx_sp
   end interface tridiag_matmul_sym_cnst_odiag
-
-
-  ! Numeric precision parameters
-  integer(int32), parameter :: ip = int32
-  integer(ip), parameter :: sp = real32
-  integer(ip), parameter :: dp = real64
 
 
 contains
