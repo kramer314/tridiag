@@ -3,8 +3,8 @@
 
 Import("env")
 
-env.Library("tridiag", source=Glob("tridiag.f90", "precision.f90"))
+env.SharedLibrary("tridiag", source=Glob("tridiag.f90", "precision.f90"))
 
-env.Library("tridiag_matmul", source=Glob("tridiag_matmul.f90", "precision.f90"))
+env.SharedLibrary("tridiag_matmul", source=Glob("tridiag_matmul.f90", "precision.f90"))
 
-env.Library("tridiag_stable", source=Glob("tridiag_stable.f90", "precision.f90"))
+env.SharedLibrary("tridiag_stable", source=Glob("tridiag_stable.f90", "precision.f90"))
